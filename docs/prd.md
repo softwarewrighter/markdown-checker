@@ -30,7 +30,7 @@ Many developers include non-ASCII characters, particularly tree-drawing symbols 
 **Actor**: Developer
 **Goal**: Quickly check if ./README.md meets standards
 **Flow**:
-1. Run `readme-checker` with no arguments
+1. Run `markdown-checker` with no arguments
 2. Tool checks ./README.md
 3. Receive pass/fail result with specific violations if any
 
@@ -38,7 +38,7 @@ Many developers include non-ASCII characters, particularly tree-drawing symbols 
 **Actor**: Developer
 **Goal**: Check README.md in a project subdirectory
 **Flow**:
-1. Run `readme-checker -p docs` or `readme-checker --path docs`
+1. Run `markdown-checker -p docs` or `markdown-checker --path docs`
 2. Tool checks docs/README.md
 3. Receive validation results
 
@@ -46,7 +46,7 @@ Many developers include non-ASCII characters, particularly tree-drawing symbols 
 **Actor**: Developer
 **Goal**: Validate a non-standard markdown file
 **Flow**:
-1. Run `readme-checker -f CONTRIBUTING.md`
+1. Run `markdown-checker -f CONTRIBUTING.md`
 2. Tool checks ./CONTRIBUTING.md
 3. Receive validation results
 
@@ -54,7 +54,7 @@ Many developers include non-ASCII characters, particularly tree-drawing symbols 
 **Actor**: Developer
 **Goal**: Check markdown file in specific location
 **Flow**:
-1. Run `readme-checker -p docs/api -f overview.md`
+1. Run `markdown-checker -p docs/api -f overview.md`
 2. Tool checks docs/api/overview.md
 3. Receive validation results
 
@@ -62,7 +62,7 @@ Many developers include non-ASCII characters, particularly tree-drawing symbols 
 **Actor**: Developer debugging issues
 **Goal**: See detailed validation process
 **Flow**:
-1. Run `readme-checker -v` or `readme-checker --verbose`
+1. Run `markdown-checker -v` or `markdown-checker --verbose`
 2. Tool displays each validation step as it runs
 3. See detailed progress and results
 
@@ -70,7 +70,7 @@ Many developers include non-ASCII characters, particularly tree-drawing symbols 
 **Actor**: CI/CD pipeline
 **Goal**: Fail build if documentation doesn't meet standards
 **Flow**:
-1. CI script runs `readme-checker`
+1. CI script runs `markdown-checker`
 2. Tool exits with code 0 (success) or 1 (failure)
 3. Pipeline proceeds or fails based on exit code
 

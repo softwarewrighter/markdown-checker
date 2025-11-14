@@ -292,7 +292,7 @@ impl Validator for TreeSymbolValidator {
 use clap::Parser;
 
 #[derive(Parser, Debug)]
-#[command(name = "readme-checker")]
+#[command(name = "markdown-checker")]
 #[command(author = "Michael A Wright")]
 #[command(version = "1.0.0")]
 #[command(about = "Validates markdown files for UTF-8, ASCII-subset, and unprintable characters", long_about = None)]

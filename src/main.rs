@@ -1,8 +1,8 @@
 use clap::Parser;
-use readme_checker::cli::{Cli, Config};
-use readme_checker::file_ops::read_file_content;
-use readme_checker::reporter::{format_results, should_exit_with_error};
-use readme_checker::validators::validate_all;
+use markdown_checker::cli::{Cli, Config};
+use markdown_checker::file_ops::read_file_content;
+use markdown_checker::reporter::{format_results, should_exit_with_error};
+use markdown_checker::validators::validate_all;
 use std::process;
 
 fn main() {

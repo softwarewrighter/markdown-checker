@@ -1,4 +1,4 @@
-# README Checker
+# Markdown Checker
 
 A command-line tool for validating markdown files to ensure they contain only UTF-8 encoded, ASCII-subset characters without unprintable control characters or non-standard tree visualization symbols.
 
@@ -12,7 +12,7 @@ Many developers include non-ASCII characters, particularly tree-drawing symbols 
 - Version control diff tools
 - Screen readers and accessibility tools
 
-README Checker helps maintain clean, portable markdown files by detecting and reporting these issues.
+Markdown Checker helps maintain clean, portable markdown files by detecting and reporting these issues.
 
 ## Features
 
@@ -32,42 +32,42 @@ Clone the repository and build with Cargo:
 
 ```bash
 git clone <repository-url>
-cd readme-checker
+cd markdown-checker
 cargo build --release
 ```
 
-The binary will be available at `target/release/readme-checker`.
+The binary will be available at `target/release/markdown-checker`.
 
 ### Basic Usage
 
 Check the default README.md in the current directory:
 
 ```bash
-readme-checker
+markdown-checker
 ```
 
 Check a README.md in a specific directory:
 
 ```bash
-readme-checker -p docs
+markdown-checker -p docs
 ```
 
 Check a custom markdown file:
 
 ```bash
-readme-checker -f CONTRIBUTING.md
+markdown-checker -f CONTRIBUTING.md
 ```
 
 Combine path and filename:
 
 ```bash
-readme-checker -p docs/api -f overview.md
+markdown-checker -p docs/api -f overview.md
 ```
 
 Enable verbose output:
 
 ```bash
-readme-checker -v
+markdown-checker -v
 ```
 
 ## Usage Examples
@@ -75,7 +75,7 @@ readme-checker -v
 ### Example 1: Successful Validation
 
 ```bash
-$ readme-checker
+$ markdown-checker
 ✓ File validation successful: ./README.md
 ```
 
@@ -93,7 +93,7 @@ Project structure:
 Running the checker:
 
 ```bash
-$ readme-checker
+$ markdown-checker
 ✗ File validation failed: ./README.md
 
 ASCII Subset: ✗ Fail (3 errors)
@@ -110,7 +110,7 @@ Tree Symbols: ✗ Fail (3 errors)
 ### Example 3: Verbose Mode
 
 ```bash
-$ readme-checker -v
+$ markdown-checker -v
 Checking file: ./README.md
 File size: 1,234 bytes
 
@@ -129,7 +129,7 @@ Use in a CI/CD pipeline with exit codes:
 
 ```bash
 #!/bin/bash
-readme-checker || exit 1
+markdown-checker || exit 1
 echo "Documentation validation passed!"
 ```
 
@@ -141,7 +141,7 @@ Exit codes:
 ## Command-Line Options
 
 ```
-Usage: readme-checker [OPTIONS]
+Usage: markdown-checker [OPTIONS]
 
 Options:
   -p, --path <PATH>          Path to directory containing the file [default: .]
