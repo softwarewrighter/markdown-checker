@@ -4,8 +4,7 @@ use markdown_checker::cli::{Cli, Config};
 use markdown_checker::file_ops::{read_file_content, write_file_content};
 use markdown_checker::fixer::fix_tree_symbols;
 use markdown_checker::reporter::{format_results, should_exit_with_error};
-use markdown_checker::validators::{validate_all, TreeSymbolValidator};
-use markdown_checker::{ValidationStatus, Validator};
+use markdown_checker::validators::validate_all;
 use std::path::PathBuf;
 use std::process;
 
