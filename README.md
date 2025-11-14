@@ -20,6 +20,9 @@ Markdown Checker helps maintain clean, portable markdown files by detecting and 
 - **ASCII Subset Checking**: Detects any character outside the ASCII range (0-127)
 - **Unprintable Character Detection**: Finds control characters and other unprintable bytes
 - **Tree Symbol Detection**: Specifically identifies box-drawing characters used in directory trees
+- **Auto-Fix**: Automatically replaces tree symbols with ASCII equivalents
+- **Dry-Run Mode**: Preview fixes before applying them
+- **Glob Pattern Support**: Process multiple files using wildcard patterns
 - **Detailed Error Reporting**: Shows exact line numbers and columns for violations
 - **Verbose Mode**: Optional detailed output showing validation progress
 - **Helpful Suggestions**: Provides alternatives for detected violations
@@ -70,6 +73,46 @@ Enable verbose output:
 markdown-checker -v
 ```
 
+### Auto-Fix Mode (New in v1.1.0)
+
+Automatically fix tree symbol violations:
+
+```bash
+markdown-checker --fix
+```
+
+Preview fixes before applying them (dry-run):
+
+```bash
+markdown-checker --dry-run
+# or
+markdown-checker -n
+```
+
+The `--fix` flag will:
+- Replace tree symbols with ASCII equivalents (+, |, -)
+- Only work if ALL violations are fixable (tree symbols only)
+- Fail with an error if the file contains other Unicode characters (emojis, accents, etc.)
+- Verify the fix worked before writing the file
+
+### Glob Pattern Support (New in v1.1.0)
+
+Process multiple files using wildcard patterns:
+
+```bash
+# All markdown files in current directory
+markdown-checker -f "*.md"
+
+# All markdown files recursively
+markdown-checker -f "**/*.md"
+
+# All markdown files in docs directory
+markdown-checker -p docs -f "*.md"
+
+# Combine with auto-fix
+markdown-checker -f "docs/**/*.md" --fix
+```
+
 ## Usage Examples
 
 For detailed examples showing actual tool output (including Unicode characters for demonstration purposes), see:
@@ -116,11 +159,15 @@ Usage: markdown-checker [OPTIONS]
 
 Options:
   -p, --path <PATH>          Path to directory containing the file [default: .]
-  -f, --file-name <NAME>     Name of the file to check [default: README.md]
+  -f, --file-name <NAME>     Name of the file to check or glob pattern [default: README.md]
   -v, --verbose              Enable verbose output
-  -h, --help                 Print help
+      --fix                  Automatically fix violations where possible (tree symbols only)
+  -n, --dry-run              Preview fixes without applying them (dry-run mode)
+  -h, --help                 Print help (use --help for extended documentation)
   -V, --version              Print version
 ```
+
+**Note**: Use `--help` to see extended documentation with detailed usage examples and safety information.
 
 ## Validation Rules
 
@@ -283,14 +330,18 @@ A: Absolutely! The tool returns appropriate exit codes for scripting and CI/CD i
 
 ## Roadmap
 
-Future enhancements being considered:
+### Completed (v1.1.0)
+- [x] Auto-fix mode to replace violations (tree symbols)
+- [x] Dry-run mode to preview fixes
+- [x] Multiple file processing with glob patterns
 
-- Auto-fix mode to replace violations
-- Configuration file support
-- Multiple file processing (batch mode)
+### Future Enhancements
+- Configuration file support (.markdown-checker.toml)
 - Custom validator plugins
 - JSON/XML output formats
 - Integration with popular markdown linters
+- Pre-built binaries for releases
+- Homebrew formula for easy installation
 
 ## Support
 

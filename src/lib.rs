@@ -92,6 +92,7 @@ pub trait Validator {
 
 pub mod cli;
 pub mod file_ops;
+pub mod fixer;
 pub mod reporter;
 pub mod validators;
 
