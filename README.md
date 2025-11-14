@@ -4,7 +4,7 @@ A command-line tool for validating markdown files to ensure they contain only UT
 
 ## Purpose
 
-Many developers include non-ASCII characters, particularly tree-drawing symbols (├, └, │, ─), in markdown files when documenting directory structures. While these characters render nicely in some contexts, they can cause issues with:
+Many developers include non-ASCII characters, particularly tree-drawing symbols (like U+251C, U+2514, U+2502, U+2500), in markdown files when documenting directory structures. While these characters render nicely in some contexts, they can cause issues with:
 
 - Basic text editors and terminals
 - CI/CD pipelines expecting ASCII-only content
@@ -72,56 +72,27 @@ markdown-checker -v
 
 ## Usage Examples
 
+For detailed examples showing actual tool output (including Unicode characters for demonstration purposes), see:
+- [Example Output](tests/fixtures/example_output.md) - Shows success/failure output with visual indicators
+- [Tree Characters Example](tests/fixtures/tree_chars.md) - Markdown file with box-drawing characters
+- [Non-ASCII Example](tests/fixtures/non_ascii.md) - File with various Unicode violations
+- [Valid Example](tests/fixtures/valid.md) - Properly formatted ASCII-only markdown
+
 ### Example 1: Successful Validation
 
-```bash
-$ markdown-checker
-✓ File validation successful: ./README.md
-```
+When a file passes all checks, the tool displays a success message and exits with code 0.
 
 ### Example 2: Detecting Tree Symbols
 
-Given a file with tree characters:
-
-```markdown
-Project structure:
-├── src/
-│   └── main.rs
-└── tests/
-```
-
-Running the checker:
-
-```bash
-$ markdown-checker
-✗ File validation failed: ./README.md
-
-ASCII Subset: ✗ Fail (3 errors)
-  Line 2, Column 1: Non-ASCII character: '├' (U+251C)
-  Line 3, Column 1: Non-ASCII character: '│' (U+2502)
-  Line 3, Column 5: Non-ASCII character: '└' (U+2514)
-
-Tree Symbols: ✗ Fail (3 errors)
-  Line 2, Column 1: Tree symbol '├' (U+251C) detected. Use '+' or '|' instead
-  Line 3, Column 1: Tree symbol '│' (U+2502) detected. Use '|' instead
-  Line 3, Column 5: Tree symbol '└' (U+2514) detected. Use '+' or '`' instead
-```
+When box-drawing characters are detected (U+251C, U+2514, U+2502, U+2500, etc.), the tool reports:
+- The validator that failed (ASCII Subset, Tree Symbols)
+- Exact line and column numbers
+- The Unicode code point
+- Suggested ASCII alternatives ('+', '-', '|', '`')
 
 ### Example 3: Verbose Mode
 
-```bash
-$ markdown-checker -v
-Checking file: ./README.md
-File size: 1,234 bytes
-
-Running validators...
-[1/4] UTF-8 Encoding... ✓ Pass
-[2/4] ASCII Subset... ✓ Pass
-[3/4] Printable Characters... ✓ Pass
-[4/4] Tree Symbols... ✓ Pass
-
-✓ File validation successful: ./README.md
-```
+Use the `-v` flag to see detailed progress as each validator runs, including file size and step-by-step results.
 
 ### Example 4: CI/CD Integration
 
@@ -172,20 +143,20 @@ Options:
 
 ### Tree Symbols
 Detects common tree visualization characters:
-- Box-drawing characters: `├ └ │ ─ ┌ ┐ ┘ ┤ ┴ ┬ ┼`
-- Full Unicode box-drawing block (U+2500 - U+257F)
+- Box-drawing characters in the Unicode range U+2500 - U+257F
+- Common examples: U+251C, U+2514, U+2502, U+2500, U+250C, U+2510, U+2518, U+2524, U+2534, U+252C, U+253C
 - Provides ASCII alternatives for each violation
 
 ## Suggested Alternatives
 
-Instead of Unicode tree symbols, use standard ASCII characters:
+Instead of Unicode tree symbols, use standard ASCII characters.
+
+See [tests/fixtures/tree_chars.md](tests/fixtures/tree_chars.md) for an example of invalid tree characters.
+
+ASCII-only alternative (valid):
 
 ```
-# Instead of:
-├── src/
-│   └── main.rs
-
-# Use:
+# Good - uses only ASCII:
 + src/
   + main.rs
 
