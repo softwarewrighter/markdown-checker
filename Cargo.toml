@@ -1,7 +1,7 @@
 [package]
 name = "markdown-checker"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 authors = ["Michael A Wright"]
 description = "CLI tool for validating markdown files for UTF-8, ASCII-subset, and unprintable characters"
 license = "MIT"
