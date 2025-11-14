@@ -1,0 +1,22 @@
+# Rust build artifacts
+/target
+Cargo.lock
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test coverage
+tarpaulin-report.html
+cobertura.xml
+
+# Backup files
+*.bak
+*.orig
