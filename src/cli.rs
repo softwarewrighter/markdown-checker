@@ -2,10 +2,20 @@ use clap::Parser;
 use std::path::PathBuf;
 
 const VERSION_INFO: &str = concat!(
-    env!("CARGO_PKG_VERSION"),
-    "\n\nCopyright (c) 2025 Michael A Wright\n",
+    env!("APP_VERSION"),
+    "\n\n",
+    "Copyright (c) 2025 Michael A Wright\n",
     "License: MIT\n",
-    "Repository: https://github.com/softwarewrighter/markdown-checker"
+    "Repository: https://github.com/softwarewrighter/markdown-checker\n\n",
+    "Build Information:\n",
+    "  Commit: ",
+    env!("GIT_SHA_SHORT"),
+    "\n",
+    "  Built: ",
+    env!("BUILD_TIMESTAMP"),
+    "\n",
+    "  Host: ",
+    env!("BUILD_HOST")
 );
 
 #[derive(Parser, Debug)]
@@ -73,6 +83,48 @@ SAFETY:
   • Files with unknown Unicode or unprintable control chars cannot be auto-fixed
   • Dry-run mode never modifies files, only shows what would change
   • Fix changes are verified before writing
+
+AI CODING AGENT INSTRUCTIONS:
+  When using this tool in automated workflows or AI coding agents:
+
+  1. VALIDATION WORKFLOW:
+     - Run: markdown-checker -f <file> -v
+     - Exit code 0 = pass, 1 = violations found, 2 = error
+     - Check stdout for detailed violation reports with line/column numbers
+
+  2. AUTO-FIX WORKFLOW:
+     - Always preview first: markdown-checker -f <file> --dry-run
+     - If dry-run succeeds, apply fix: markdown-checker -f <file> --fix
+     - If --fix fails with 'non-fixable violations', the file contains:
+       * Unknown Unicode characters (rare emojis, CJK chars, etc.)
+       * Unprintable control characters
+       → These require manual review/fixing
+
+  3. BATCH PROCESSING:
+     - Use glob patterns: markdown-checker -f '**/*.md' --fix
+     - The tool processes files sequentially and reports each result
+     - Overall exit code reflects success/failure of all files
+
+  4. COMMON FIXABLE VIOLATIONS:
+     - Tree symbols (├ └ │ ─) → ASCII (+, |, -)
+     - Checkmarks/X marks (✓ ✗ ✅ ❌) → [x]
+     - Arrows (→ ← ⇒) → ->, <-, etc.
+     - Accented letters (é ñ ç) → plain ASCII (e n c)
+     - Smart quotes (curly quotes) → standard quotes
+     - Math operators (≥ ≤ ≠) → >=, <=, !=
+     - Special symbols (© ® ™ …) → (c), (R), (TM), ...
+
+  5. ERROR HANDLING:
+     - Exit code 2 = file not found, permission denied, or invalid arguments
+     - Exit code 1 = validation failed (violations present)
+     - Exit code 0 = success (valid or successfully fixed)
+     - Always check stderr for error messages and warnings
+
+  6. BEST PRACTICES:
+     - Use --dry-run before --fix to preview changes
+     - Use -v for detailed output when debugging
+     - For CI/CD: run validation only (no --fix) to enforce standards
+     - For local dev: use --fix to automatically correct common issues
 
 For more information and examples, visit:
 https://github.com/softwarewrighter/markdown-checker

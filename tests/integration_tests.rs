@@ -11,8 +11,7 @@ fn test_project_readme_passes_validation() {
     let readme_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("README.md");
 
     // Read the README content
-    let content = read_file_content(&readme_path)
-        .expect("Failed to read project README.md");
+    let content = read_file_content(&readme_path).expect("Failed to read project README.md");
 
     // Run all validators
     let results = validate_all(&content);
@@ -39,11 +38,9 @@ fn test_project_readme_passes_validation() {
 /// Test that valid.md fixture passes validation
 #[test]
 fn test_valid_fixture_passes() {
-    let fixture_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("tests/fixtures/valid.md");
+    let fixture_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/valid.md");
 
-    let content = read_file_content(&fixture_path)
-        .expect("Failed to read valid.md fixture");
+    let content = read_file_content(&fixture_path).expect("Failed to read valid.md fixture");
 
     let results = validate_all(&content);
 
@@ -56,11 +53,10 @@ fn test_valid_fixture_passes() {
 /// Test that tree_chars.md fixture fails validation
 #[test]
 fn test_tree_chars_fixture_fails() {
-    let fixture_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("tests/fixtures/tree_chars.md");
+    let fixture_path =
+        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/tree_chars.md");
 
-    let content = read_file_content(&fixture_path)
-        .expect("Failed to read tree_chars.md fixture");
+    let content = read_file_content(&fixture_path).expect("Failed to read tree_chars.md fixture");
 
     let results = validate_all(&content);
 
@@ -71,7 +67,8 @@ fn test_tree_chars_fixture_fails() {
     );
 
     // Specifically, Tree Symbols validator should fail
-    let tree_result = results.iter()
+    let tree_result = results
+        .iter()
         .find(|r| r.validator_name == "Tree Symbols")
         .expect("Tree Symbols validator should run");
 
@@ -84,11 +81,10 @@ fn test_tree_chars_fixture_fails() {
 /// Test that non_ascii.md fixture fails validation
 #[test]
 fn test_non_ascii_fixture_fails() {
-    let fixture_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("tests/fixtures/non_ascii.md");
+    let fixture_path =
+        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/non_ascii.md");
 
-    let content = read_file_content(&fixture_path)
-        .expect("Failed to read non_ascii.md fixture");
+    let content = read_file_content(&fixture_path).expect("Failed to read non_ascii.md fixture");
 
     let results = validate_all(&content);
 
@@ -99,7 +95,8 @@ fn test_non_ascii_fixture_fails() {
     );
 
     // ASCII Subset validator should fail
-    let ascii_result = results.iter()
+    let ascii_result = results
+        .iter()
         .find(|r| r.validator_name == "ASCII Subset")
         .expect("ASCII Subset validator should run");
 

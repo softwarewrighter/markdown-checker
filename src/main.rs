@@ -65,7 +65,8 @@ fn main() {
                         println!("   Would fix {} tree symbol violation(s)", violation_count);
                         if config.verbose {
                             println!("\nOriginal violations:");
-                            let output = format_results(&results, &file_path.display().to_string(), false);
+                            let output =
+                                format_results(&results, &file_path.display().to_string(), false);
                             print!("{}", output);
                             println!("\n✓ After fix: All violations would be resolved");
                         }
@@ -74,23 +75,34 @@ fn main() {
                         // Apply the fix
                         match write_file_content(file_path, &fixed_content) {
                             Ok(_) => {
-                                println!("✓ Fixed {} tree symbol violation(s) in: {}",
-                                       violation_count,
-                                       file_path.display());
+                                println!(
+                                    "✓ Fixed {} tree symbol violation(s) in: {}",
+                                    violation_count,
+                                    file_path.display()
+                                );
                             }
                             Err(e) => {
-                                eprintln!("✗ Error writing fixed content to {}: {}", file_path.display(), e);
+                                eprintln!(
+                                    "✗ Error writing fixed content to {}: {}",
+                                    file_path.display(),
+                                    e
+                                );
                                 overall_success = false;
                             }
                         }
                     }
                 } else {
                     // File has non-tree-symbol violations that cannot be auto-fixed
-                    let output = format_results(&results, &file_path.display().to_string(), config.verbose);
+                    let output =
+                        format_results(&results, &file_path.display().to_string(), config.verbose);
                     print!("{}", output);
                     eprintln!("\n⚠️  Cannot auto-fix: File contains non-fixable violations.");
-                    eprintln!("Common Unicode characters can be auto-fixed (tree symbols, checkmarks, arrows, accents, quotes, etc.).");
-                    eprintln!("This file has other Unicode characters or unprintable control characters that cannot be safely converted.");
+                    eprintln!(
+                        "Common Unicode characters can be auto-fixed (tree symbols, checkmarks, arrows, accents, quotes, etc.)."
+                    );
+                    eprintln!(
+                        "This file has other Unicode characters or unprintable control characters that cannot be safely converted."
+                    );
                     overall_success = false;
                 }
             } else {
@@ -124,7 +136,10 @@ fn main() {
 /// Resolve file pattern (glob or single file) to list of file paths
 fn resolve_files(config: &Config) -> Result<Vec<PathBuf>, String> {
     // Check if filename contains glob patterns
-    if config.filename.contains('*') || config.filename.contains('?') || config.filename.contains('[') {
+    if config.filename.contains('*')
+        || config.filename.contains('?')
+        || config.filename.contains('[')
+    {
         // It's a glob pattern
         let pattern = config.file_path().display().to_string();
         let mut paths = Vec::new();
