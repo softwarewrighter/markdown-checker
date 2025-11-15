@@ -1,4 +1,4 @@
-/// Integration tests for markdown-checker
+//! Integration tests for markdown-checker.
 
 use markdown_checker::file_ops::read_file_content;
 use markdown_checker::validators::validate_all;

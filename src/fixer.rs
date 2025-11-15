@@ -1,9 +1,9 @@
-/// Auto-fix module for correcting markdown violations
-///
-/// Currently supports:
-/// - Tree symbols: Replaces Unicode box-drawing characters with ASCII equivalents
+//! Auto-fix module for correcting markdown violations.
+//!
+//! Currently supports:
+//! - Tree symbols: Replaces Unicode box-drawing characters with ASCII equivalents
 
-/// Fix tree symbols in the content by replacing them with ASCII equivalents
+/// Fixes tree symbols in the content by replacing them with ASCII equivalents.
 pub fn fix_tree_symbols(content: &str) -> String {
     let mut fixed = String::with_capacity(content.len());
 

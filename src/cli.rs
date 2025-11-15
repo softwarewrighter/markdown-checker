@@ -1,10 +1,17 @@
 use clap::Parser;
 use std::path::PathBuf;
 
+const VERSION_INFO: &str = concat!(
+    env!("CARGO_PKG_VERSION"),
+    "\n\nCopyright (c) 2025 Michael A Wright\n",
+    "License: MIT\n",
+    "Repository: https://github.com/softwarewrighter/markdown-checker"
+);
+
 #[derive(Parser, Debug)]
 #[command(name = "markdown-checker")]
 #[command(author = "Michael A Wright")]
-#[command(version = "1.1.0")]
+#[command(version = VERSION_INFO)]
 #[command(about = "Validates markdown files for UTF-8, ASCII-subset, and unprintable characters")]
 #[command(long_about = "\
 Markdown Checker - Validate and Auto-Fix Markdown Files
