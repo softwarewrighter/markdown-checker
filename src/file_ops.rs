@@ -7,6 +7,11 @@ pub fn read_file_content(path: &Path) -> io::Result<String> {
     fs::read_to_string(path)
 }
 
+/// Write content to file
+pub fn write_file_content(path: &Path, content: &str) -> io::Result<()> {
+    fs::write(path, content)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
