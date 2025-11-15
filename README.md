@@ -216,7 +216,7 @@ ASCII-only alternative (valid):
 
 ### Prerequisites
 
-- Rust 1.70 or later
+- Rust 1.85.0 or later (required for Rust 2024 edition)
 - Cargo
 
 ### Building
