@@ -89,7 +89,8 @@ fn main() {
                     let output = format_results(&results, &file_path.display().to_string(), config.verbose);
                     print!("{}", output);
                     eprintln!("\n⚠️  Cannot auto-fix: File contains non-fixable violations.");
-                    eprintln!("Only tree symbol violations can be auto-fixed. This file has other Unicode or unprintable characters.");
+                    eprintln!("Common Unicode characters can be auto-fixed (tree symbols, checkmarks, arrows, accents, quotes, etc.).");
+                    eprintln!("This file has other Unicode characters or unprintable control characters that cannot be safely converted.");
                     overall_success = false;
                 }
             } else {

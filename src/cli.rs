@@ -36,8 +36,9 @@ VALIDATION RULES:
   ✓ Valid: ASCII characters (32-126) plus whitespace (space, tab, LF, CR)
   ✗ Invalid: Unicode characters, emojis, accents, box-drawing symbols
 
-  Auto-fixable: Tree symbols (├ → +, └ → +, │ → |, ─ → -)
-  Not auto-fixable: Other Unicode, unprintable characters (unclear intent)
+  Auto-fixable: Tree symbols, checkmarks, arrows, accented letters, smart quotes, etc.
+    Examples: tree chars to +|-/-, checkmarks to [x], arrows to ->/etc, accents to plain
+  Not auto-fixable: Emojis (except common ones), unprintable control characters
 
 USAGE PATTERNS:
   # Validate single file
@@ -67,8 +68,9 @@ EXIT CODES:
   2 - Error: File not found, invalid arguments, or other errors
 
 SAFETY:
-  • --fix only works if ALL violations are auto-fixable (tree symbols only)
-  • Files with ASCII or unprintable violations cannot be auto-fixed
+  • --fix only works if ALL violations are auto-fixable
+  • Fixes most common Unicode chars: symbols, accents, quotes, arrows, math operators
+  • Files with unknown Unicode or unprintable control chars cannot be auto-fixed
   • Dry-run mode never modifies files, only shows what would change
   • Fix changes are verified before writing
 
