@@ -413,8 +413,8 @@ graph TB
 
 ## Related Documentation
 
-- [Architecture Overview](Architecture.md) - System architecture diagrams
-- [Key Components](Components.md) - Component details
-- [Validation Engine](Validation-Engine.md) - Validator implementation details
-- [Auto-Fix System](Auto-Fix-System.md) - Fix mechanism details
-- [CLI Interface](CLI-Interface.md) - Command-line interface details
+- [Architecture Overview](Architecture) - System architecture diagrams
+- [Key Components](Components) - Component details
+- [Validation Engine](Validation-Engine) - Validator implementation details
+- [Auto-Fix System](Auto-Fix-System) - Fix mechanism details
+- [CLI Interface](CLI-Interface) - Command-line interface details

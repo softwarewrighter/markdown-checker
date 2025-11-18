@@ -23,9 +23,9 @@ graph TB
 ```mermaid
 graph TD
     subgraph "Testing Layers"
-        E2E[End-to-End Tests<br/>CLI Integration]
-        Integration[Integration Tests<br/>Component Interaction]
-        Unit[Unit Tests<br/>Individual Functions]
+        E2E[End-to-End Tests CLI Integration]
+        Integration[Integration Tests Component Interaction]
+        Unit[Unit Tests Individual Functions]
     end
 
     Unit --> Integration
@@ -709,6 +709,6 @@ mod test_helpers {
 
 ## Related Documentation
 
-- [Development Process](Development-Process.md)
-- [Components Overview](Components.md)
-- [Validation Engine](Validation-Engine.md)
+- [Development Process](Development-Process)
+- [Components Overview](Components)
+- [Validation Engine](Validation-Engine)

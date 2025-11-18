@@ -137,20 +137,20 @@ flowchart TD
 ```mermaid
 graph TD
     subgraph "src/"
-        Main[main.rs<br/>Entry Point] --> CLI[cli.rs<br/>CLI Parsing]
-        Main --> Lib[lib.rs<br/>Library Interface]
+        Main[main.rs Entry Point] --> CLI[cli.rs CLI Parsing]
+        Main --> Lib[lib.rs Library Interface]
 
-        CLI --> FileOps[file_ops.rs<br/>File I/O]
-        CLI --> Fixer[fixer.rs<br/>Auto-Fix Logic]
+        CLI --> FileOps[file_ops.rs File I/O]
+        CLI --> Fixer[fixer.rs Auto-Fix Logic]
 
-        Lib --> Validators[validators/<br/>Validation Logic]
-        Validators --> ModV[mod.rs<br/>Trait Definition]
+        Lib --> Validators[validators/ Validation Logic]
+        Validators --> ModV[mod.rs Trait Definition]
         Validators --> UTF8V[utf8.rs]
         Validators --> ASCIIV[ascii.rs]
         Validators --> UnprintV[unprintable.rs]
         Validators --> TreeV[tree_symbols.rs]
 
-        Main --> Reporter[reporter.rs<br/>Output Formatting]
+        Main --> Reporter[reporter.rs Output Formatting]
     end
 
     style Main fill:#42a5f5
@@ -298,7 +298,7 @@ The architecture supports easy extension:
 
 ## Related Documentation
 
-- [Key Components](Components.md) - Detailed component documentation
-- [Workflows & Sequences](Workflows.md) - Sequence diagrams for operations
-- [Validation Engine](Validation-Engine.md) - Deep dive into validators
-- [Testing Strategy](Testing-Strategy.md) - Testing approach
+- [Key Components](Components) - Detailed component documentation
+- [Workflows & Sequences](Workflows) - Sequence diagrams for operations
+- [Validation Engine](Validation-Engine) - Deep dive into validators
+- [Testing Strategy](Testing-Strategy) - Testing approach

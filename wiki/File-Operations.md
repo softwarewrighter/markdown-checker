@@ -494,7 +494,7 @@ mod tests {
 
 ## Related Documentation
 
-- [Components Overview](Components.md)
-- [CLI Interface](CLI-Interface.md)
-- [Validation Engine](Validation-Engine.md)
-- [Auto-Fix System](Auto-Fix-System.md)
+- [Components Overview](Components)
+- [CLI Interface](CLI-Interface)
+- [Validation Engine](Validation-Engine)
+- [Auto-Fix System](Auto-Fix-System)

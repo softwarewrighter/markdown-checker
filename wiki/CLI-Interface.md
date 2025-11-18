@@ -352,9 +352,9 @@ Exit code: 2
 
 ```mermaid
 graph TD
-    Result{Outcome} --> Success[Exit Code 0<br/>Success]
-    Result --> ValidationFail[Exit Code 1<br/>Validation Failed]
-    Result --> UsageError[Exit Code 2<br/>File/Argument Error]
+    Result{Outcome} --> Success[Exit Code 0 Success]
+    Result --> ValidationFail[Exit Code 1 Validation Failed]
+    Result --> UsageError[Exit Code 2 File/Argument Error]
 
     Success --> S1[All validations passed]
     Success --> S2[File successfully fixed]
@@ -389,6 +389,6 @@ The CLI uses the `clap` crate's derive API for clean, declarative argument parsi
 
 ## Related Documentation
 
-- [Components Overview](Components.md)
-- [Workflows & Sequences](Workflows.md)
-- [File Operations](File-Operations.md)
+- [Components Overview](Components)
+- [Workflows & Sequences](Workflows)
+- [File Operations](File-Operations)

@@ -6,9 +6,9 @@ Markdown Checker follows Test-Driven Development (TDD) methodology with a focus 
 
 ```mermaid
 graph TB
-    Start([Start New Feature]) --> Red[Write Failing Test<br/>RED]
-    Red --> Green[Write Minimal Code<br/>GREEN]
-    Green --> Refactor[Refactor Code<br/>REFACTOR]
+    Start([Start New Feature]) --> Red[Write Failing Test RED]
+    Red --> Green[Write Minimal Code GREEN]
+    Green --> Refactor[Refactor Code REFACTOR]
     Refactor --> Test{All Tests Pass?}
     Test -->|No| Fix[Fix Issues]
     Fix --> Test
@@ -720,7 +720,7 @@ jobs:
 
 ## Related Documentation
 
-- [Testing Strategy](Testing-Strategy.md)
-- [Architecture Overview](Architecture.md)
-- [Components Overview](Components.md)
+- [Testing Strategy](Testing-Strategy)
+- [Architecture Overview](Architecture)
+- [Components Overview](Components)
 - [Main README](../README.md)

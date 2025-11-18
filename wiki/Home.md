@@ -5,20 +5,20 @@ Welcome to the Markdown Checker documentation wiki! This tool validates markdown
 ## Quick Navigation
 
 ### Architecture & Design
-- **[Architecture Overview](Architecture.md)** - System architecture with component diagrams
-- **[Key Components](Components.md)** - Detailed breakdown of major components
-- **[Workflows & Sequences](Workflows.md)** - Sequence diagrams showing key operations
+- **[Architecture Overview](Architecture)** - System architecture with component diagrams
+- **[Key Components](Components)** - Detailed breakdown of major components
+- **[Workflows & Sequences](Workflows)** - Sequence diagrams showing key operations
 
 ### Component Details
-- **[CLI Interface](CLI-Interface.md)** - Command-line argument parsing and configuration
-- **[Validation Engine](Validation-Engine.md)** - Core validation logic and validators
-- **[File Operations](File-Operations.md)** - File reading and processing
-- **[Reporter Module](Reporter-Module.md)** - Output formatting and error reporting
-- **[Auto-Fix System](Auto-Fix-System.md)** - Automatic violation fixing
+- **[CLI Interface](CLI-Interface)** - Command-line argument parsing and configuration
+- **[Validation Engine](Validation-Engine)** - Core validation logic and validators
+- **[File Operations](File-Operations)** - File reading and processing
+- **[Reporter Module](Reporter-Module)** - Output formatting and error reporting
+- **[Auto-Fix System](Auto-Fix-System)** - Automatic violation fixing
 
 ### Development
-- **[Testing Strategy](Testing-Strategy.md)** - Unit and integration testing approach
-- **[Development Process](Development-Process.md)** - TDD workflow and best practices
+- **[Testing Strategy](Testing-Strategy)** - Unit and integration testing approach
+- **[Development Process](Development-Process)** - TDD workflow and best practices
 
 ## Project Overview
 
@@ -56,13 +56,13 @@ Markdown Checker is a Rust-based CLI tool that helps maintain clean, portable ma
 
 For installation and usage instructions, see the [main README](../README.md).
 
-For understanding the codebase architecture, start with the [Architecture Overview](Architecture.md) and [Key Components](Components.md) pages.
+For understanding the codebase architecture, start with the [Architecture Overview](Architecture) and [Key Components](Components) pages.
 
 ## Documentation Structure
 
 This wiki is organized to provide both high-level overviews and detailed component documentation:
 
-1. **Start Here**: Read the [Architecture Overview](Architecture.md) to understand the system design
-2. **Understand Workflows**: Review [Workflows & Sequences](Workflows.md) to see how data flows
+1. **Start Here**: Read the [Architecture Overview](Architecture) to understand the system design
+2. **Understand Workflows**: Review [Workflows & Sequences](Workflows) to see how data flows
 3. **Deep Dive**: Explore individual component pages for implementation details
-4. **Contribute**: Review the [Testing Strategy](Testing-Strategy.md) and [Development Process](Development-Process.md)
+4. **Contribute**: Review the [Testing Strategy](Testing-Strategy) and [Development Process](Development-Process)

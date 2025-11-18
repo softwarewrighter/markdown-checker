@@ -274,12 +274,12 @@ fn format_status_colored(status: &ValidationStatus) -> ColoredString {
 graph TD
     Start[Determine Exit Code] --> CheckResults{Check Results}
 
-    CheckResults --> AllPass{All Validators<br/>Pass?}
-    AllPass -->|Yes| Exit0[Exit Code 0<br/>Success]
+    CheckResults --> AllPass{All Validators Pass?}
+    AllPass -->|Yes| Exit0[Exit Code 0 Success]
     AllPass -->|No| CheckFileErr{File Error?}
 
-    CheckFileErr -->|Yes| Exit2[Exit Code 2<br/>File/Usage Error]
-    CheckFileErr -->|No| Exit1[Exit Code 1<br/>Validation Failed]
+    CheckFileErr -->|Yes| Exit2[Exit Code 2 File/Usage Error]
+    CheckFileErr -->|No| Exit1[Exit Code 1 Validation Failed]
 
     style Exit0 fill:#c8e6c9
     style Exit1 fill:#fff9c4
@@ -640,7 +640,7 @@ Summary:
 
 ## Related Documentation
 
-- [Components Overview](Components.md)
-- [CLI Interface](CLI-Interface.md)
-- [Workflows & Sequences](Workflows.md)
-- [Auto-Fix System](Auto-Fix-System.md)
+- [Components Overview](Components)
+- [CLI Interface](CLI-Interface)
+- [Workflows & Sequences](Workflows)
+- [Auto-Fix System](Auto-Fix-System)

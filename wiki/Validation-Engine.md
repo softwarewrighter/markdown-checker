@@ -210,14 +210,14 @@ fn is_printable(ch: char) -> bool {
 ```mermaid
 graph LR
     subgraph "ASCII Codes"
-        A[0-8<br/>Control Chars<br/>❌]
-        B[9<br/>Tab<br/>✓]
-        C[10<br/>Newline<br/>✓]
-        D[11-12<br/>Control Chars<br/>❌]
-        E[13<br/>Carriage Return<br/>✓]
-        F[14-31<br/>Control Chars<br/>❌]
-        G[32-126<br/>Printable<br/>✓]
-        H[127<br/>Delete<br/>❌]
+        A[0-8 Control Chars ❌]
+        B[9 Tab ✓]
+        C[10 Newline ✓]
+        D[11-12 Control Chars ❌]
+        E[13 Carriage Return ✓]
+        F[14-31 Control Chars ❌]
+        G[32-126 Printable ✓]
+        H[127 Delete ❌]
     end
 
     style B fill:#c8e6c9
@@ -475,7 +475,7 @@ ValidationError {
 
 ## Related Documentation
 
-- [Components Overview](Components.md)
-- [Workflows & Sequences](Workflows.md)
-- [Auto-Fix System](Auto-Fix-System.md)
-- [Testing Strategy](Testing-Strategy.md)
+- [Components Overview](Components)
+- [Workflows & Sequences](Workflows)
+- [Auto-Fix System](Auto-Fix-System)
+- [Testing Strategy](Testing-Strategy)

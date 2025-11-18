@@ -7,29 +7,29 @@ This page provides a detailed overview of the major components in the Markdown C
 ```mermaid
 graph TB
     subgraph "User Interface Layer"
-        CLI[CLI Parser<br/>cli.rs]
-        Config[Configuration<br/>Config struct]
+        CLI[CLI Parser cli.rs]
+        Config[Configuration Config struct]
     end
 
     subgraph "Processing Layer"
-        FileOps[File Operations<br/>file_ops.rs]
-        Glob[Glob Processor<br/>Pattern matching]
+        FileOps[File Operations file_ops.rs]
+        Glob[Glob Processor Pattern matching]
     end
 
     subgraph "Validation Layer"
-        ValidatorTrait[Validator Trait<br/>validators/mod.rs]
-        UTF8[UTF-8 Validator<br/>validators/utf8.rs]
-        ASCII[ASCII Validator<br/>validators/ascii.rs]
-        Unprint[Unprintable Validator<br/>validators/unprintable.rs]
-        Tree[Tree Symbol Validator<br/>validators/tree_symbols.rs]
+        ValidatorTrait[Validator Trait validators/mod.rs]
+        UTF8[UTF-8 Validator validators/utf8.rs]
+        ASCII[ASCII Validator validators/ascii.rs]
+        Unprint[Unprintable Validator validators/unprintable.rs]
+        Tree[Tree Symbol Validator validators/tree_symbols.rs]
     end
 
     subgraph "Modification Layer"
-        Fixer[Auto-Fix System<br/>fixer.rs]
+        Fixer[Auto-Fix System fixer.rs]
     end
 
     subgraph "Output Layer"
-        Reporter[Reporter<br/>reporter.rs]
+        Reporter[Reporter reporter.rs]
     end
 
     CLI --> Config
@@ -381,7 +381,7 @@ const TREE_REPLACEMENTS: &[(char, char)] = &[
 **Fix Process**:
 ```mermaid
 graph TD
-    Start[Validation Results] --> Check{All Violations<br/>Tree Symbols?}
+    Start[Validation Results] --> Check{All Violations Tree Symbols?}
     Check -->|Yes| Map[Build Replacement Map]
     Check -->|No| Unfixable[Report: Cannot Fix]
 
@@ -513,9 +513,9 @@ graph TD
 
 ## Related Documentation
 
-- [Architecture Overview](Architecture.md) - High-level system architecture
-- [Workflows & Sequences](Workflows.md) - Detailed sequence diagrams
-- [CLI Interface](CLI-Interface.md) - CLI component deep dive
-- [Validation Engine](Validation-Engine.md) - Validator implementation details
-- [Auto-Fix System](Auto-Fix-System.md) - Fix mechanism deep dive
-- [Reporter Module](Reporter-Module.md) - Output formatting details
+- [Architecture Overview](Architecture) - High-level system architecture
+- [Workflows & Sequences](Workflows) - Detailed sequence diagrams
+- [CLI Interface](CLI-Interface) - CLI component deep dive
+- [Validation Engine](Validation-Engine) - Validator implementation details
+- [Auto-Fix System](Auto-Fix-System) - Fix mechanism deep dive
+- [Reporter Module](Reporter-Module) - Output formatting details

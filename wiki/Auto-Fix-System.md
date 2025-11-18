@@ -167,12 +167,12 @@ pub fn apply_fixes(content: &str, results: &[ValidationResult]) -> Result<String
 **Replacement Algorithm**:
 ```mermaid
 graph TD
-    Content[Original Content] --> Check{Has Fixable<br/>Violations?}
+    Content[Original Content] --> Check{Has Fixable Violations?}
     Check -->|No| Return[Return Original]
     Check -->|Yes| ReplaceLoop[For Each Replacement]
 
     ReplaceLoop --> Replace[Replace Character]
-    Replace --> Next{More<br/>Replacements?}
+    Replace --> Next{More Replacements?}
     Next -->|Yes| ReplaceLoop
     Next -->|No| Fixed[Fixed Content]
 
@@ -565,7 +565,7 @@ mod tests {
 
 ## Related Documentation
 
-- [Components Overview](Components.md)
-- [Validation Engine](Validation-Engine.md)
-- [File Operations](File-Operations.md)
-- [Workflows & Sequences](Workflows.md)
+- [Components Overview](Components)
+- [Validation Engine](Validation-Engine)
+- [File Operations](File-Operations)
+- [Workflows & Sequences](Workflows)
