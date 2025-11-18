@@ -723,4 +723,4 @@ jobs:
 - [Testing Strategy](Testing-Strategy)
 - [Architecture Overview](Architecture)
 - [Components Overview](Components)
-- [Main README](../README.md)
+- [Main README](https://github.com/softwarewrighter/markdown-checker/blob/main/README.md)

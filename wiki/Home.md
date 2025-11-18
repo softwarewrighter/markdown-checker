@@ -48,13 +48,13 @@ Markdown Checker is a Rust-based CLI tool that helps maintain clean, portable ma
 ## Quick Links
 
 - [GitHub Repository](https://github.com/softwarewrighter/markdown-checker)
-- [Main README](../README.md)
-- [Architecture Documentation](../docs/architecture.md)
-- [Design Documentation](../docs/design.md)
+- [Main README](https://github.com/softwarewrighter/markdown-checker/blob/main/README.md)
+- [Architecture Documentation](https://github.com/softwarewrighter/markdown-checker/blob/main/docs/architecture.md)
+- [Design Documentation](https://github.com/softwarewrighter/markdown-checker/blob/main/docs/design.md)
 
 ## Getting Started
 
-For installation and usage instructions, see the [main README](../README.md).
+For installation and usage instructions, see the [main README](https://github.com/softwarewrighter/markdown-checker/blob/main/README.md).
 
 For understanding the codebase architecture, start with the [Architecture Overview](Architecture) and [Key Components](Components) pages.
 
