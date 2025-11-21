@@ -15,6 +15,11 @@ fn main() {
     // Resolve file pattern to list of files
     let files = match resolve_files(&config) {
         Ok(f) if f.is_empty() => {
+            // Special case: if looking for README.md and neither README.md nor README.org exist,
+            // this is just a warning, not an error - exit successfully
+            if config.filename == "README.md" {
+                process::exit(0);
+            }
             eprintln!("No files found matching pattern: {}", config.filename);
             process::exit(2);
         }
@@ -159,6 +164,20 @@ fn resolve_files(config: &Config) -> Result<Vec<PathBuf>, String> {
     } else {
         // It's a single file path
         let path = config.file_path();
+
+        // Special handling for README files: try README.org as fallback
+        if config.filename == "README.md" && !path.exists() {
+            let readme_org = config.path.join("README.org");
+            if readme_org.exists() {
+                eprintln!("Note: README.md not found, using README.org as alternative");
+                return Ok(vec![readme_org]);
+            } else {
+                // Neither README.md nor README.org exists - emit warning but don't fail
+                eprintln!("Warning: Neither README.md nor README.org found in {}", config.path.display());
+                return Ok(vec![]);
+            }
+        }
+
         if path.exists() {
             Ok(vec![path])
         } else {

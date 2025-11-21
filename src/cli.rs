@@ -52,7 +52,7 @@ VALIDATION RULES:
 
 USAGE PATTERNS:
   # Validate single file
-  markdown-checker                          # Checks ./README.md
+  markdown-checker                          # Checks ./README.md (or README.org if README.md not found)
   markdown-checker -f CONTRIBUTING.md       # Checks ./CONTRIBUTING.md
   markdown-checker -p docs -f overview.md   # Checks docs/overview.md
 
@@ -134,7 +134,7 @@ pub struct Cli {
     #[arg(short, long, value_name = "PATH", default_value = ".")]
     pub path: PathBuf,
 
-    /// Name of the file to check or glob pattern (default: README.md)
+    /// Name of the file to check or glob pattern (default: README.md, falls back to README.org if not found)
     #[arg(short = 'f', long, value_name = "NAME", default_value = "README.md")]
     pub file_name: String,
 
