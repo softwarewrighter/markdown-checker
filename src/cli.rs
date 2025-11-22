@@ -1,30 +1,9 @@
 use clap::Parser;
 use std::path::PathBuf;
 
-pub fn create_version_string() -> String {
-    use sw_cli::version::{BuildInfo, Version};
-
-    let build_info = BuildInfo::new(
-        env!("BUILD_HOST").to_string(),
-        env!("GIT_COMMIT_SHA").to_string(),
-        env!("BUILD_TIMESTAMP").parse().unwrap(),
-    );
-
-    let version = Version::new(
-        env!("APP_VERSION").to_string(),
-        format!("Copyright (c) {} Michael A Wright", env!("BUILD_YEAR")),
-        "MIT".to_string(),
-        "https://github.com/softwarewrighter/markdown-checker/blob/main/LICENSE".to_string(),
-        build_info,
-    );
-
-    format!("{}", version)
-}
-
 #[derive(Parser, Debug)]
 #[command(name = "markdown-checker")]
 #[command(author = "Michael A Wright")]
-#[command(version = env!("APP_VERSION"))]
 #[command(about = "Validates markdown files for UTF-8, ASCII-subset, and unprintable characters")]
 #[command(long_about = "\
 Markdown Checker - Validate and Auto-Fix Markdown Files

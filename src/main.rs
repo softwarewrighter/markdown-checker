@@ -1,6 +1,6 @@
 use clap::Parser;
 use glob::glob;
-use markdown_checker::cli::{create_version_string, Cli, Config};
+use markdown_checker::cli::{Cli, Config};
 use markdown_checker::file_ops::{read_file_content, write_file_content};
 use markdown_checker::fixer::fix_tree_symbols;
 use markdown_checker::reporter::{format_results, should_exit_with_error};
@@ -12,7 +12,7 @@ fn main() {
     // Check for version flag with detailed output
     let args: Vec<String> = std::env::args().collect();
     if args.len() > 1 && (args[1] == "-V" || args[1] == "--version") {
-        println!("{}", create_version_string());
+        println!("{}", sw_cli::version!());
         return;
     }
 
