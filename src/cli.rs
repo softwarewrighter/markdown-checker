@@ -11,8 +11,10 @@ pub fn create_version_string() -> String {
     );
 
     let version = Version::new(
-        format!("markdown-checker v{}\nCopyright (c) {} Michael A Wright", env!("APP_VERSION"), env!("BUILD_YEAR")),
-        "MIT (https://github.com/softwarewrighter/markdown-checker/blob/main/LICENSE)".to_string(),
+        env!("APP_VERSION").to_string(),
+        format!("Copyright (c) {} Michael A Wright", env!("BUILD_YEAR")),
+        "MIT".to_string(),
+        "https://github.com/softwarewrighter/markdown-checker/blob/main/LICENSE".to_string(),
         build_info,
     );
 
