@@ -1,0 +1,3 @@
+[submodule "lib/sw-cli"]
+	path = lib/sw-cli
+	url = https://github.com/softwarewrighter/sw-cli.git

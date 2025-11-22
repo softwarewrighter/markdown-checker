@@ -1,4 +1,4 @@
-use chrono::Utc;
+use chrono::{Datelike, Utc};
 use std::fs;
 use std::process::Command;
 
@@ -9,10 +9,6 @@ fn main() {
         .trim()
         .to_string();
     println!("cargo:rustc-env=APP_VERSION={}", version);
-
-    // Get the current timestamp in ISO 8601 format
-    let build_timestamp = Utc::now().to_rfc3339();
-    println!("cargo:rustc-env=BUILD_TIMESTAMP={}", build_timestamp);
 
     // Get the build host (hostname)
     let build_host = if let Ok(output) = Command::new("hostname").output() {
@@ -28,15 +24,18 @@ fn main() {
     } else {
         "unknown".to_string()
     };
-    println!("cargo:rustc-env=GIT_SHA={}", git_sha);
+    println!("cargo:rustc-env=GIT_COMMIT_SHA={}", git_sha);
 
-    // Get the short git commit SHA (first 7 characters)
-    let git_sha_short = if git_sha.len() >= 7 {
-        git_sha[..7].to_string()
-    } else {
-        git_sha.clone()
-    };
-    println!("cargo:rustc-env=GIT_SHA_SHORT={}", git_sha_short);
+    // Get build timestamp (milliseconds since epoch) for sw-cli
+    let timestamp_ms = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_millis() as i64;
+    println!("cargo:rustc-env=BUILD_TIMESTAMP={}", timestamp_ms);
+
+    // Get current year for copyright
+    let year = Utc::now().year();
+    println!("cargo:rustc-env=BUILD_YEAR={}", year);
 
     // Tell cargo to re-run this script if these files change
     println!("cargo:rerun-if-changed=VERSION");
